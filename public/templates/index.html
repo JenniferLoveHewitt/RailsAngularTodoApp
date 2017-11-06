@@ -1,0 +1,75 @@
+<div class="main">
+    <div class="row">
+        <div class="text-center col-xs-6 col-xs-offset-3">
+            <h1>Find Tasks</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-6 col-xs-offset-3">
+            <form>
+                <div class="search">
+                    <input ng-model="keywords" name="keywords" type="text" placeholder="Task name, e.g. Learn rails" class="form-control">
+
+                    <div class="form-group col-md-6 col-md-offset-3 text-center">
+                        <button ng-click="search(keywords)" class="btn btn-primary btn-lg" style="margin-top: 20px">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="row">
+                <form>
+                    <input ng-model="newTask.name" name="newTask" type="text" placeholder="Task name, e.g. Learn rails" class="col-xs-6 col-xs-offset-3">
+                    <button ng-click="addTask()" class="btn btn-success col-xs-1">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 40px">
+        <div class="col-xs-6 col-xs-offset-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <button type="button" class="btn btn-dark" ng-click="sortBy('active')">Выполено</button>
+                            <span class="sortorder" ng-show="propertyName === 'active'" ng-class="{reverse: reverse}"></span>
+                        </th>
+
+                        <th scope="col">
+                            <button type="button" class="btn btn-dark" ng-click="sortBy('name')">Задача</button>
+                            <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+                        </th>
+
+                        <th scope="col">
+                            <button type="button" class="btn btn-dark" ng-click="sortBy('date')">Дата добавления</button>
+                            <span class="sortorder" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+                        </th>
+
+                        <th scope="col">
+                            <button type="button" class="btn btn-dark">Удаление</button>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="task in tasks | orderBy:propertyName:reverse">
+                        <td><input type="checkbox" ng-model="!task.active" ng-click = "toggleActive(task)"></td>
+                        <td>{{task.name}}</td>
+                        <td>{{task.created_at}}</td>
+
+                        <td>
+                            <button ng-click="delete(task)" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
