@@ -36,6 +36,7 @@ gem 'haml-rails'
 gem 'angular-rails-templates'
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
