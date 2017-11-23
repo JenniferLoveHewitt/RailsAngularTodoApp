@@ -4,6 +4,10 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# IntellijIdea files
+/*.iml
+/.idea
+
 # Ignore bundler config.
 /.bundle
 
@@ -21,8 +25,3 @@
 /yarn-error.log
 
 .byebug_history
-
-# IntellijIdea files
-*.iml
-.idea
-out
