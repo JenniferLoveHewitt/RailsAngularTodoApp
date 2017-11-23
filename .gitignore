@@ -5,8 +5,9 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # IntellijIdea files
-/*.iml
-/.idea
+*.iml/
+.idea/
+out
 
 # Ignore bundler config.
 /.bundle
